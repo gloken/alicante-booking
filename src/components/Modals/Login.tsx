@@ -1,10 +1,18 @@
 import React from "react";
+import { useAtom } from "jotai";
+import { authModalState } from "@/state/authModalState";
 
 type LoginProps = {
 
 }
 
 const Login: React.FC<LoginProps> = () => {
+    const [authModal, setAuthModal] = useAtom(authModalState);
+
+    const resetPassword = () => {
+        setAuthModal({...authModal, type: 'forgot-password'});
+    }
+
     return (
         <div className="p-4">
             <h1 className="text-xl font-medium text-white">Logg inn</h1>
@@ -23,7 +31,9 @@ const Login: React.FC<LoginProps> = () => {
                         className="w-full text-white focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-brand-orange hover:bg-brand-orange-s">Logg
                     inn
                 </button>
-                <button className='flex w-full justify-end'>
+                <button className='flex w-full justify-end'
+                        onClick={resetPassword}
+                >
                     <a href='#' className='text-sm block text-brand-orange hover:underline w-full text-right'>
                         Glemt passordet?
                     </a>
