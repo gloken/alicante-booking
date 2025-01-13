@@ -12,4 +12,3 @@ const initialAuthModalState: AuthModalState = {
 
 export const authModalState = atom<AuthModalState>(initialAuthModalState);
 
-export const counterAtom = atom(0);
