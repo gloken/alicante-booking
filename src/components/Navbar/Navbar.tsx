@@ -21,6 +21,11 @@ const Navbar: React.FC<NavbarProps> = () => {
         setAuthModal({...authModal, isOpen: true});
     }
 
+    const getInitials = (name: string): string => {
+        const initials = name.split(' ').map(([first]) => first).join('');
+        return initials.toUpperCase();
+    };
+
     return (
         <div className="flex items-center justify-between px-2 sm:px-12 md:px-24 border-blue-500 border-2 h-16">
             <div className="flex items-center">
@@ -29,14 +34,23 @@ const Navbar: React.FC<NavbarProps> = () => {
             <div className="ml-auto flex items-center">
                 {bookingUser?.user ? (
                     <div>
-                        {bookingUser.user.photoURL && (
+                        {bookingUser.user.photoURL ? (
                             <img
                                 src={bookingUser.user.photoURL}
                                 title={`Logg ut ${bookingUser.name}`}
                                 className="h-8 w-8 rounded-full mr-2 cursor-pointer hover:opacity-75 hover:border-2 hover:border-yellow-500 transition duration-300 ease-in-out"
                                 onClick={handleSignOut}
                             />
-                        )}
+                        ) : (
+                            <div
+                                title={`Logg ut ${bookingUser.name}`}
+                                className="h-8 w-8 rounded-full mr-2 cursor-pointer hover:opacity-75 hover:border-2 hover:border-yellow-500 transition duration-300 ease-in-out flex items-center justify-center bg-gray-500 text-white font-extrabold"
+                                onClick={handleSignOut}
+                            >
+                                {getInitials(bookingUser.name)}
+                            </div>
+                        )
+                        }
                     </div>
                 ) : (
                     <div>
