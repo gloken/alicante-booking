@@ -38,6 +38,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                             <img
                                 src={bookingUser.user.photoURL}
                                 title={`Logg ut ${bookingUser.name}`}
+                                alt={`Profilbilde av ${bookingUser.name}`}
                                 className="h-8 w-8 rounded-full mr-2 cursor-pointer hover:opacity-75 hover:border-2 hover:border-yellow-500 transition duration-300 ease-in-out"
                                 onClick={handleSignOut}
                             />
