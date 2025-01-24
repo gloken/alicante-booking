@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -7,39 +7,53 @@ import bootstrap5Plugin from "@fullcalendar/bootstrap5";
 import noLocale from "@fullcalendar/core/locales/nb";
 import 'bootswatch/dist/sandstone/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { DocumentData } from "firebase/firestore";
 import {useAtom} from "jotai/index";
 import {userAtom} from "@/state/userAtom";
 import {EventContentArg} from "@fullcalendar/core";
+import {getEvents} from "@/services/firestoreService";
 
 const Calendar = () => {
     const [bookingUser] = useAtom(userAtom);
+    const [events, setEvents] = useState<DocumentData[]>([]);
+
+
+    useEffect(() => {
+        const fetchEvents = async () => {
+            const eventsFromFirestore = await getEvents();
+            setEvents(eventsFromFirestore);
+            console.log(eventsFromFirestore);
+        };
+
+        fetchEvents();
+    }, []);
 
     if (!bookingUser?.user) return null;
 
-    const events = [
-        {
-            title: "Geir",
-            description: "En hel gjeng",
-            start: "2025-01-05",
-            end: "2025-01-10",
-            extendedProps: {
-                owner: "Geir",
-                guests: ["Linn", "Calle", "Kari", "Per", "Pål"],
-            },
-        },
-        {
-            title: "Gry",
-            date: "2025-01-02",
-            extendedProps: {
-                owner: "Gry",
-            },
-        },
-        {
-            title: "Mimmi & Bessa",
-            start: "2025-01-22T11:30:00",
-            end: "2025-01-31T13:30:00",
-        }
-    ];
+    // const events = [
+    //     {
+    //         title: "Geir",
+    //         description: "En hel gjeng",
+    //         start: "2025-01-05",
+    //         end: "2025-01-10",
+    //         extendedProps: {
+    //             owner: "Geir",
+    //             guests: ["Linn", "Calle", "Kari", "Per", "Pål"],
+    //         },
+    //     },
+    //     {
+    //         title: "Gry",
+    //         date: "2025-01-02",
+    //         extendedProps: {
+    //             owner: "Gry",
+    //         },
+    //     },
+    //     {
+    //         title: "Mimmi & Bessa",
+    //         start: "2025-01-22T11:30:00",
+    //         end: "2025-01-31T13:30:00",
+    //     }
+    // ];
 
     const getColorByOwner = (owner: string) => {
         switch (owner) {
