@@ -1,5 +1,5 @@
 import {firestore} from "@/firebase/firebase";
-import {addDoc, collection, getDocs, query} from "@firebase/firestore";
+import {collection, getDocs, query} from "@firebase/firestore";
 
 // export const addUser = async (userData: any) => {
 //     const docRef = await addDoc(collection(firestore, 'allowedUsers'), userData);
@@ -13,9 +13,9 @@ import {addDoc, collection, getDocs, query} from "@firebase/firestore";
 
 const eventCollection = collection(firestore, 'events');
 
-export const addEvent = async (eventData: any) => {
-    await addDoc(eventCollection, eventData);
-}
+// export const addEvent = async (eventData: any) => {
+//     await addDoc(eventCollection, eventData);
+// }
 
 export const getEvents = async () => {
     const q = query(eventCollection);

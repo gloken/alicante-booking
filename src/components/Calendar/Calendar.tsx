@@ -69,7 +69,9 @@ const Calendar = () => {
     const renderEventContent = (eventInfo: EventContentArg) => {
         const {bg, text} = getColorByOwner(eventInfo.event.extendedProps.owner);
         const eventStyling = `p-2 rounded ${bg} ${text}`;
-        const guestInfo = eventInfo.event.extendedProps.guests?.length > 0 ? ` + ${eventInfo.event.extendedProps.guests.length}` : "";
+        const guestInfo = eventInfo.event.extendedProps.guests?.length > 0
+            ? `, ${eventInfo.event.extendedProps.guests.join(', ')}`
+            : "";
 
         return (
             <div className={eventStyling}>

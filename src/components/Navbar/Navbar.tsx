@@ -7,7 +7,7 @@ import {auth} from "@/firebase/firebase";
 import {userAtom} from "@/state/userAtom";
 import {authModalState} from "@/state/authModalState";
 
-type NavbarProps = {}
+type NavbarProps = object
 
 const Navbar: React.FC<NavbarProps> = () => {
     const [bookingUser] = useAtom(userAtom);

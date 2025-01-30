@@ -9,7 +9,7 @@ import {User} from "firebase/auth";
 import {createBookingUser} from "@/utils/createBookingUser";
 import {PacmanLoader} from "react-spinners";
 
-type AuthModalProps = {};
+type AuthModalProps = object;
 
 const AuthModal: React.FC<AuthModalProps> = () => {
     const [authModal, setAuthModal] = useAtom(authModalState);
@@ -22,6 +22,9 @@ const AuthModal: React.FC<AuthModalProps> = () => {
     };
     const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] = useSignInWithEmailAndPassword(auth);
 
+    if (googleError) console.log(googleError);
+    if (emailError) console.log(emailError);
+
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!inputs.email || !inputs.password) return alert("Please fill all fields");
@@ -29,9 +32,11 @@ const AuthModal: React.FC<AuthModalProps> = () => {
             const newUser = await signInWithEmailAndPassword(inputs.email, inputs.password);
             if (!newUser) return;
             // router.push("/");
-        } catch (error: any) {
+        } catch (error: unknown) {
             // toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
-            console.log(error.message);
+            if (error instanceof Error) {
+                console.log(error.message);
+            }
         }
     };
 

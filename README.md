@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+TODO/Notater:
+
+https://www.bing.com/videos/riverview/relatedvideo?q=firebase+nextjs&mid=AA628CB5B1340921F79AAA628CB5B1340921F79A&mcid=E8B235E39A4849E6A46E28DB4ABB5FA3&FORM=VIRE
+- [ ] Ta i bruk `useAuthState` for å hente ut brukerens autentiseringsstatus
+- [ ] Ta i bruk `useCollection` for å hente ut bookings
