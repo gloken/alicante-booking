@@ -5,4 +5,4 @@
 [[plugins]]
     package = "@netlify/plugin-nextjs"
     [plugins.inputs]
-        nextVersion = "latest"
+        nextVersion = "15.1.4"
