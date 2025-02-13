@@ -2,9 +2,9 @@ import {Provider} from 'jotai';
 import React, {ReactNode, useEffect} from 'react';
 import {useSetAtom} from 'jotai';
 import {onAuthStateChanged, setPersistence, browserLocalPersistence} from 'firebase/auth';
-import {auth} from '@/firebase/firebase';
-import {userAtom} from "@/state/userAtom";
-import {createBookingUser} from "@/utils/createBookingUser";
+import {auth} from './firebase/firebase';
+import {userAtom} from "./state/userAtom";
+import {createBookingUser} from "./utils/createBookingUser";
 
 const AuthProvider: React.FC<{ children: ReactNode }> = ({children}) => {
     const setUser = useSetAtom(userAtom);

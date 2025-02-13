@@ -1,11 +1,11 @@
 import './App.css';
 import { collection } from '@firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import { firestore } from '@/firebase/firebase';
+import { firestore } from './firebase/firebase';
 import { useAtom } from 'jotai';
-import { authModalState } from '@/state/authModalState.ts';
-import AuthModal from '@/components/AuthModal.tsx';
-import Navbar from '@/components/Navbar/Navbar.tsx';
+import { authModalState } from './state/authModalState.ts';
+import AuthModal from './components/AuthModal.tsx';
+import Navbar from './components/Navbar/Navbar.tsx';
 import Calendar from './components/Calendar/Calendar.tsx';
 
 function App() {
