@@ -1,5 +1,3 @@
-'use client';
-
 import {Provider} from 'jotai';
 import React, {ReactNode, useEffect} from 'react';
 import {useSetAtom} from 'jotai';

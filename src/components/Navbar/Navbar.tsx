@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {useAtom} from "jotai";
 import {signOut} from "firebase/auth";

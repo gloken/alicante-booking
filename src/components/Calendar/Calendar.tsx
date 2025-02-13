@@ -1,34 +1,41 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import bootstrap5Plugin from "@fullcalendar/bootstrap5";
 import noLocale from "@fullcalendar/core/locales/nb";
-import 'bootswatch/dist/sandstone/bootstrap.min.css';
+// import 'bootswatch/dist/sandstone/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { DocumentData } from "firebase/firestore";
+import { firestore } from '@/firebase/firebase';
 import {useAtom} from "jotai/index";
 import {userAtom} from "@/state/userAtom";
 import {EventContentArg} from "@fullcalendar/core";
-import {getEvents} from "@/services/firestoreService";
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { collection } from '@firebase/firestore';
 
-const Calendar = () => {
+type CalendarProps = object;
+
+const Calendar: React.FC<CalendarProps> = () => {
     const [bookingUser] = useAtom(userAtom);
-    const [events, setEvents] = useState<DocumentData[]>([]);
-
-
-    useEffect(() => {
-        const fetchEvents = async () => {
-            const eventsFromFirestore = await getEvents();
-            setEvents(eventsFromFirestore);
-            console.log(eventsFromFirestore);
-        };
-
-        fetchEvents();
-    }, []);
+    const [storedEvents, eventsLoading, eventsError] = useCollection(collection(firestore, 'events'));
 
     if (!bookingUser?.user) return null;
+
+    console.log(storedEvents?.docs, eventsLoading, eventsError);
+
+    const events = storedEvents?.docs.map((doc) => {
+        const event = doc.data();
+        return {
+            title: event.title,
+            start: event.start,
+            end: event.end,
+            extendedProps: {
+                owner: event.owner,
+                guests: event.guests,
+            },
+        };
+    });
 
     // const events = [
     //     {
