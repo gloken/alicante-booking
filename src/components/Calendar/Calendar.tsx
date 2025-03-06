@@ -3,10 +3,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 import noLocale from '@fullcalendar/core/locales/nb';
-// import 'bootswatch/dist/sandstone/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useAtom } from 'jotai/index';
 import { userAtom } from '../../state/userAtom';
 import { EventContentArg } from '@fullcalendar/core';
@@ -60,7 +57,6 @@ const Calendar: React.FC<CalendarProps> = () => {
             dayGridPlugin,
             timeGridPlugin,
             listPlugin,
-            bootstrap5Plugin,
           ]}
           initialView="dayGridMonth"
           events={events}
