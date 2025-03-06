@@ -3,7 +3,9 @@ import { collection } from '@firebase/firestore';
 import { firestore } from '../firebase/firebase';
 
 const useEvents = () => {
-  const [storedEvents, eventsLoading, eventsError] = useCollection(collection(firestore, 'events'));
+  const [storedEvents, eventsLoading, eventsError] = useCollection(
+    collection(firestore, 'events')
+  );
 
   const events = storedEvents?.docs.map((doc) => {
     const event = doc.data();

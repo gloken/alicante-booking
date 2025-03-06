@@ -2,8 +2,8 @@ import { atom } from 'jotai';
 
 type AuthModalState = {
   isOpen: boolean;
-  type: "login" | "register" | "forgot-password";
-}
+  type: 'login' | 'register' | 'forgot-password';
+};
 
 const initialAuthModalState: AuthModalState = {
   isOpen: false,
@@ -11,4 +11,3 @@ const initialAuthModalState: AuthModalState = {
 };
 
 export const authModalState = atom<AuthModalState>(initialAuthModalState);
-

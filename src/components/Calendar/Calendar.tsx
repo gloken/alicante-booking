@@ -35,25 +35,33 @@ const Calendar: React.FC<CalendarProps> = () => {
   const renderEventContent = (eventInfo: EventContentArg) => {
     const { bg, text } = getColorByOwner(eventInfo.event.extendedProps.owner);
     const eventStyling = `p-2 rounded ${bg} ${text}`;
-    const guestInfo = eventInfo.event.extendedProps.guests?.length > 0
-      ? `, ${eventInfo.event.extendedProps.guests.join(', ')}`
-      : '';
+    const guestInfo =
+      eventInfo.event.extendedProps.guests?.length > 0
+        ? `, ${eventInfo.event.extendedProps.guests.join(', ')}`
+        : '';
 
     return (
       <div className={eventStyling}>
         <b>{eventInfo.event.title}</b>
-        <i>{eventInfo.event.extendedProps.owner} {guestInfo}</i>
+        <i>
+          {eventInfo.event.extendedProps.owner} {guestInfo}
+        </i>
       </div>
     );
   };
 
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       {eventsLoading && <PacmanLoader loading={eventsLoading} />}
       {eventsError && <div>Error: {eventsError.message}</div>}
-      {!eventsLoading && !eventsError &&
+      {!eventsLoading && !eventsError && (
         <FullCalendar
-          plugins={[dayGridPlugin, timeGridPlugin, listPlugin, bootstrap5Plugin]}
+          plugins={[
+            dayGridPlugin,
+            timeGridPlugin,
+            listPlugin,
+            bootstrap5Plugin,
+          ]}
           initialView="dayGridMonth"
           events={events}
           locale={noLocale}
@@ -66,7 +74,7 @@ const Calendar: React.FC<CalendarProps> = () => {
           eventContent={renderEventContent}
           eventDisplay={'block'}
         />
-      }
+      )}
     </div>
   );
 };
