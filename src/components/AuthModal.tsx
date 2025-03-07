@@ -76,16 +76,16 @@ const AuthModal: React.FC<AuthModalProps> = () => {
   return (
     <>
       <div
-        className="bg-opacity-60 absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black"
+        className="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black/60"
         onClick={closeModal}
       ></div>
       <div className="absolute top-[50%] left-[50%] flex w-full translate-x-[-50%] translate-y-[-50%] items-center justify-center sm:w-[450px]">
         <div className="relative mx-auto flex h-full w-full items-center justify-center">
-          <div className="from-brand-orange relative mx-6 w-full rounded-lg bg-white bg-gradient-to-b to-slate-900 shadow">
+          <div className="from-tan-950 to-tan-500 shadow-tan-950/70 relative mx-6 w-full rounded-lg bg-gradient-to-b shadow-lg">
             <div className="flex justify-end p-2">
               <button
                 type="button"
-                className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-white hover:bg-gray-800 hover:text-white"
+                className="text-tan-100 hover:bg-coral-pink-600 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm hover:text-white"
                 onClick={closeModal}
               >
                 <IoClose className="h-5 w-5" />
@@ -112,10 +112,10 @@ const AuthModal: React.FC<AuthModalProps> = () => {
                   </button>
 
                   <form className="px-6" onSubmit={handleLogin}>
-                    <h1 className="text-xl font-medium text-white">
+                    <h1 className="text-tan-100 text-xl font-medium">
                       Logg inn med e-post/passord
                     </h1>
-                    <div className="space-y-6 border px-6 pt-2 pb-4">
+                    <div className="border-tan-200 space-y-6 rounded-lg border px-6 pt-2 pb-4">
                       <div>
                         <label
                           htmlFor="email"
@@ -127,7 +127,7 @@ const AuthModal: React.FC<AuthModalProps> = () => {
                           type="email"
                           name="email"
                           id="email"
-                          className="block w-full rounded-lg border-2 border-gray-500 bg-gray-600 p-2.5 text-white placeholder-gray-400 outline-none focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                          className="border-tan-200 text-tan-100 focus:border-tan-50 focus:ring-tan-50 block w-full rounded-lg border-2 p-2.5 outline-none sm:text-sm"
                           onChange={handleInputChange}
                         />
                       </div>
@@ -142,7 +142,7 @@ const AuthModal: React.FC<AuthModalProps> = () => {
                           type="password"
                           name="password"
                           id="password"
-                          className="block w-full rounded-lg border-2 border-gray-500 bg-gray-600 p-2.5 text-white placeholder-gray-400 outline-none focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                          className="border-tan-200 text-tan-100 focus:border-tan-50 focus:ring-tan-50 block w-full rounded-lg border-2 p-2.5 outline-none sm:text-sm"
                           onChange={handleInputChange}
                         />
                       </div>

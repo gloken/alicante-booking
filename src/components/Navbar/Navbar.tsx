@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   };
 
   return (
-    <div className="flex h-16 items-center justify-between border-2 border-blue-500 px-2 sm:px-12 md:px-24">
+    <div className="bg-tan-700 text-tan-100 flex h-16 items-center justify-between px-2 sm:px-12 md:px-24">
       <div className="flex items-center">
         Løkens Bookingkalender - Gran Vista
       </div>
@@ -57,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           <div>
             <button
               onClick={handleSignIn}
-              className="rounded-md border-2 border-transparent bg-blue-500 px-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:border-2 hover:border-blue-500 hover:bg-yellow-500 hover:text-blue-500 sm:px-4"
+              className="bg-sunset-orange-500 hover:bg-sunset-orange-700 text-tan-100 rounded-lg px-4 py-2"
             >
               Logg inn
             </button>

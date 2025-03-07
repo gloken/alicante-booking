@@ -9,7 +9,7 @@ function App() {
   const [authModal] = useAtom(authModalState);
 
   return (
-    <>
+    <div className="bg-test-3 flex min-h-screen w-full flex-col text-gray-900">
       <header className="w-full">
         <Navbar />
       </header>
@@ -20,7 +20,7 @@ function App() {
       <footer className="flex w-full flex-wrap items-center justify-center gap-6 p-8 sm:p-20">
         Nederst
       </footer>
-    </>
+    </div>
   );
 }
 
