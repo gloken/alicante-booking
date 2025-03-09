@@ -1,9 +1,14 @@
 import React from 'react';
 import { useAtom } from 'jotai';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
-import { userAtom } from '../../state/userAtom';
-import { authModalState } from '../../state/authModalState';
+import { auth } from '@/firebase/firebase.ts';
+import { userAtom } from '@/state/userAtom.ts';
+import { authModalState } from '@/state/authModalState.ts';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from '@/components/ui/avatar.tsx';
 
 type NavbarProps = object;
 
@@ -34,24 +39,14 @@ const Navbar: React.FC<NavbarProps> = () => {
       </div>
       <div className="ml-auto flex items-center">
         {bookingUser?.user ? (
-          <div>
-            {bookingUser.user.photoURL ? (
-              <img
-                src={bookingUser.user.photoURL}
-                title={`Logg ut ${bookingUser.name}`}
-                alt={`Profilbilde av ${bookingUser.name}`}
-                className="mr-2 h-8 w-8 cursor-pointer rounded-full transition duration-300 ease-in-out hover:border-2 hover:border-yellow-500 hover:opacity-75"
-                onClick={handleSignOut}
-              />
-            ) : (
-              <div
-                title={`Logg ut ${bookingUser.name}`}
-                className="mr-2 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-gray-500 font-extrabold text-white transition duration-300 ease-in-out hover:border-2 hover:border-yellow-500 hover:opacity-75"
-                onClick={handleSignOut}
-              >
-                {getInitials(bookingUser.name)}
-              </div>
-            )}
+          <div onClick={handleSignOut} className="cursor-pointer">
+            <Avatar
+              className="hover:border-sunset-orange-700 hover:border-2"
+              title="Logg ut"
+            >
+              <AvatarImage src={bookingUser.user.photoURL ?? ''} />
+              <AvatarFallback>{getInitials(bookingUser.name)}</AvatarFallback>
+            </Avatar>
           </div>
         ) : (
           <div>
