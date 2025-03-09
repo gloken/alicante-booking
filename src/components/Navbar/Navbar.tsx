@@ -28,11 +28,13 @@ const Navbar: React.FC<NavbarProps> = () => {
   };
 
   return (
-    <div className="bg-tan-700 text-tan-100 flex h-16 items-center justify-between px-2 sm:px-12 md:px-24">
-      <div className="flex items-center">
-        Løkens Bookingkalender - Gran Vista
+    <div className="navbar bg-base-200 text-base-content">
+      <div className="navbar-start">
+        <a className="btn btn-ghost text-xl normal-case">
+          Løkens Bookingkalender - Gran Vista
+        </a>
       </div>
-      <div className="ml-auto flex items-center">
+      <div className="navbar-end">
         {bookingUser?.user ? (
           <div>
             {bookingUser.user.photoURL ? (
@@ -40,13 +42,13 @@ const Navbar: React.FC<NavbarProps> = () => {
                 src={bookingUser.user.photoURL}
                 title={`Logg ut ${bookingUser.name}`}
                 alt={`Profilbilde av ${bookingUser.name}`}
-                className="mr-2 h-8 w-8 cursor-pointer rounded-full transition duration-300 ease-in-out hover:border-2 hover:border-yellow-500 hover:opacity-75"
+                className="avatar h-8 w-8 cursor-pointer rounded-full transition duration-300 ease-in-out hover:border-2 hover:border-yellow-500 hover:opacity-75"
                 onClick={handleSignOut}
               />
             ) : (
               <div
                 title={`Logg ut ${bookingUser.name}`}
-                className="mr-2 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-gray-500 font-extrabold text-white transition duration-300 ease-in-out hover:border-2 hover:border-yellow-500 hover:opacity-75"
+                className="avatar placeholder flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-gray-500 text-white transition duration-300 ease-in-out hover:border-2 hover:border-yellow-500 hover:opacity-75"
                 onClick={handleSignOut}
               >
                 {getInitials(bookingUser.name)}
@@ -55,10 +57,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           </div>
         ) : (
           <div>
-            <button
-              onClick={handleSignIn}
-              className="bg-sunset-orange-500 hover:bg-sunset-orange-700 text-tan-100 rounded-lg px-4 py-2"
-            >
+            <button onClick={handleSignIn} className="btn btn-primary">
               Logg inn
             </button>
           </div>

@@ -9,7 +9,7 @@ function App() {
   const [authModal] = useAtom(authModalState);
 
   return (
-    <div className="bg-test-3 flex min-h-screen w-full flex-col text-gray-900">
+    <div className="bg-base-200 text-base-content flex min-h-screen w-full flex-col">
       <header className="w-full">
         <Navbar />
       </header>

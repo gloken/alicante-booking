@@ -76,16 +76,16 @@ const AuthModal: React.FC<AuthModalProps> = () => {
   return (
     <>
       <div
-        className="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-black/60"
+        className="fixed inset-0 flex items-center justify-center bg-black/60"
         onClick={closeModal}
       ></div>
-      <div className="absolute top-[50%] left-[50%] flex w-full translate-x-[-50%] translate-y-[-50%] items-center justify-center sm:w-[450px]">
-        <div className="relative mx-auto flex h-full w-full items-center justify-center">
-          <div className="from-tan-950 to-tan-500 shadow-tan-950/70 relative mx-6 w-full rounded-lg bg-gradient-to-b shadow-lg">
-            <div className="flex justify-end p-2">
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="relative mx-auto w-full max-w-md p-4">
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body">
               <button
                 type="button"
-                className="text-tan-100 hover:bg-coral-pink-600 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm hover:text-white"
+                className="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
                 onClick={closeModal}
               >
                 <IoClose className="h-5 w-5" />
@@ -98,10 +98,10 @@ const AuthModal: React.FC<AuthModalProps> = () => {
               </div>
             ) : (
               <>
-                <div className="my-4 flex flex-col justify-center gap-4">
+                <div className="my-4 flex flex-col gap-4">
                   <button
                     onClick={() => signInWithGoogle()}
-                    className="mx-8 flex items-center rounded-md border border-black bg-white px-4 py-2 text-black shadow-md hover:bg-gray-100"
+                    className="btn btn-outline btn-primary"
                   >
                     <img
                       src="https://developers.google.com/identity/images/g-logo.png"
@@ -111,57 +111,42 @@ const AuthModal: React.FC<AuthModalProps> = () => {
                     Logg inn med Google
                   </button>
 
-                  <form className="px-6" onSubmit={handleLogin}>
-                    <h1 className="text-tan-100 text-xl font-medium">
+                  <form onSubmit={handleLogin}>
+                    <h1 className="text-xl font-medium">
                       Logg inn med e-post/passord
                     </h1>
-                    <div className="border-tan-200 space-y-6 rounded-lg border px-6 pt-2 pb-4">
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="mb-2 block text-sm font-medium text-gray-300"
-                        >
-                          E-post
-                        </label>
+                    <div className="border-secondary rounded-lg border p-4">
+                      <fieldset className="fieldset">
+                        <legend className="fieldset-legend">E-post</legend>
                         <input
                           type="email"
                           name="email"
                           id="email"
-                          className="border-tan-200 text-tan-100 focus:border-tan-50 focus:ring-tan-50 block w-full rounded-lg border-2 p-2.5 outline-none sm:text-sm"
+                          className="input input-bordered"
                           onChange={handleInputChange}
                         />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="password"
-                          className="mb-2 block text-sm font-medium text-gray-300"
-                        >
-                          Passord
-                        </label>
+                      </fieldset>
+                      <fieldset className="fieldset">
+                        <legend className="fieldset-legend">Passord</legend>
                         <input
                           type="password"
                           name="password"
                           id="password"
-                          className="border-tan-200 text-tan-100 focus:border-tan-50 focus:ring-tan-50 block w-full rounded-lg border-2 p-2.5 outline-none sm:text-sm"
+                          className="input input-bordered"
                           onChange={handleInputChange}
                         />
-                      </div>
+                      </fieldset>
                       <button
                         type="submit"
-                        className="bg-brand-orange hover:bg-brand-orange-s w-full rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-blue-300"
+                        className="btn btn-primary mt-4 w-full"
                       >
                         Logg inn
                       </button>
                       <button
-                        className="flex w-full justify-end"
+                        className="btn btn-link mt-2 w-full"
                         onClick={() => alert('Click')}
                       >
-                        <a
-                          href="#"
-                          className="text-brand-orange block w-full text-right text-sm hover:underline"
-                        >
-                          Glemt passordet?
-                        </a>
+                        Glemt passordet?
                       </button>
                     </div>
                   </form>
