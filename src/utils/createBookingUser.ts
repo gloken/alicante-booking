@@ -1,7 +1,7 @@
 import { User } from 'firebase/auth';
-import { Role, BookingUser } from '../state/userAtom';
+import { Role, BookingUser } from '@/state/userAtom.ts';
 import { collection, getDocs, query, where } from '@firebase/firestore';
-import { firestore } from '../firebase/firebase';
+import { firestore } from '@/firebase/firebase.ts';
 
 export const createBookingUser = async (
   user: User

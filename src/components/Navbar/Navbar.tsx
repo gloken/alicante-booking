@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAtom } from 'jotai';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
-import { userAtom } from '../../state/userAtom';
-import { authModalState } from '../../state/authModalState';
+import { auth } from '@/firebase/firebase.ts';
+import { userAtom } from '@/state/userAtom.ts';
+import { authModalState } from '@/state/authModalState.ts';
 
 type NavbarProps = object;
 

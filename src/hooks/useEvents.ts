@@ -1,6 +1,6 @@
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { collection } from '@firebase/firestore';
-import { firestore } from '../firebase/firebase';
+import { firestore } from '@/firebase/firebase.ts';
 
 const useEvents = () => {
   const [storedEvents, eventsLoading, eventsError] = useCollection(

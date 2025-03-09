@@ -5,7 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import noLocale from '@fullcalendar/core/locales/nb';
 import { useAtom } from 'jotai/index';
-import { userAtom } from '../../state/userAtom';
+import { userAtom } from '@/state/userAtom.ts';
 import { EventContentArg } from '@fullcalendar/core';
 import useEvents from '../../hooks/useEvents.ts';
 import { PacmanLoader } from 'react-spinners';
@@ -53,11 +53,7 @@ const Calendar: React.FC<CalendarProps> = () => {
       {eventsError && <div>Error: {eventsError.message}</div>}
       {!eventsLoading && !eventsError && (
         <FullCalendar
-          plugins={[
-            dayGridPlugin,
-            timeGridPlugin,
-            listPlugin,
-          ]}
+          plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
           initialView="dayGridMonth"
           events={events}
           locale={noLocale}

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { auth } from '../firebase/firebase';
+import { auth } from '@/firebase/firebase.ts';
 import { useAtom } from 'jotai';
-import { authModalState } from '../state/authModalState';
-import { userAtom } from '../state/userAtom';
+import { authModalState } from '@/state/authModalState.ts';
+import { userAtom } from '@/state/userAtom.ts';
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
 import { User } from 'firebase/auth';
-import { createBookingUser } from '../utils/createBookingUser';
+import { createBookingUser } from '@/utils/createBookingUser.ts';
 import { PacmanLoader } from 'react-spinners';
 
 type AuthModalProps = object;

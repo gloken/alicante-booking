@@ -1,9 +1,9 @@
 import './App.css';
 import { useAtom } from 'jotai';
-import { authModalState } from './state/authModalState.ts';
-import AuthModal from './components/AuthModal.tsx';
-import Navbar from './components/Navbar/Navbar.tsx';
-import Calendar from './components/Calendar/Calendar.tsx';
+import { authModalState } from '@/state/authModalState.ts';
+import AuthModal from '@/components/AuthModal.tsx';
+import Navbar from '@/components/Navbar/Navbar.tsx';
+import Calendar from '@/components/Calendar/Calendar.tsx';
 
 function App() {
   const [authModal] = useAtom(authModalState);
