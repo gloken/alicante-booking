@@ -57,7 +57,6 @@ const Calendar: React.FC<CalendarProps> = () => {
           initialView="dayGridMonth"
           events={events}
           locale={noLocale}
-          themeSystem="bootstrap5"
           headerToolbar={{
             left: 'prev,next today',
             center: 'title',
