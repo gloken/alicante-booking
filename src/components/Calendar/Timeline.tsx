@@ -72,7 +72,7 @@ const Timeline: React.FC<TimelineProps> = ({ startDate, endDate }) => {
       title: 'Sommerferie Geir',
       start: '2025-07-02T09:00:00',
       end: '2025-07-25T10:00:00',
-      owner: '',
+      owner: 'Geir',
       guests: ['Linn', 'Jenny', 'Julie'],
     },
     {
@@ -80,7 +80,7 @@ const Timeline: React.FC<TimelineProps> = ({ startDate, endDate }) => {
       title: 'Merie ferie Geir',
       start: '2025-05-10T09:00:00',
       end: '2025-05-17T10:00:00',
-      owner: '',
+      owner: 'Geir',
       guests: ['Linn', 'Jenny', 'Julie'],
     },
   ];
@@ -135,7 +135,7 @@ const Timeline: React.FC<TimelineProps> = ({ startDate, endDate }) => {
       }
     }
 
-    return `${overlappingEvents * 4}rem`;
+    return `${overlappingEvents * 4.5}rem`;
   };
 
   return (

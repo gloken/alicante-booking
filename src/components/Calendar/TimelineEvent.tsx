@@ -32,7 +32,15 @@ const TimelineEvent: React.FC<TimelineEventProps> = ({
       style={{ left, width, top, position: 'absolute' }}
     >
       <div className="card-body">
-        <h2 className="card-title">{event.title}</h2>
+        <h2 className="card-title">
+          {event.title}
+          <div
+            className="badge badge-secondary tooltip"
+            data-tip={event.owner + ', ' + event.guests.join(', ')}
+          >
+            {event.guests.length + 1}
+          </div>
+        </h2>
         <p>{formatEventDuration(event.start, event.end)}</p>
       </div>
     </div>
